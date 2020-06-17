@@ -1,0 +1,200 @@
+#section {
+    width: 1200px;
+    height: 800px;
+    margin: 20px auto;
+    padding: 50px 0;
+
+}
+
+body {
+    background-color: #F1F1F1;
+}
+
+.hotel_inf_w {
+    margin-top: 0px;
+    width: 100%;
+    float: left;
+}
+
+.book_info {
+    background: #ffffff;
+    width: 600px;
+    height: 550px;
+    float: left;
+    margin-top: -550px;
+    margin-left: 620px;
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+    padding: 18px 30px;
+
+}
+
+.hotel_roominfobox img {
+    width: 300px;
+    height: 300px;
+
+}
+
+.hotel_roominfobox1 img {
+    width: 50%;
+    height: 550px;
+
+}
+
+.hotel_roomdetail img{
+    margin-top: 20px;
+    padding-left: 10px;
+    text-align: center;
+    width: 140px;
+    height: 140px;
+}
+.hotel_roomdetail img:hover{
+    transform: scale(2.0);
+}
+
+.book_info > ul > li {
+    border-top: 1px dashed #ddd;
+    padding: 18px 0;
+}
+
+.book_info > ul > li:first-child {
+    border-top: 0;
+}
+
+.book_info div.info_group {
+    padding: 10px;
+}
+
+.book_info div.info_group label {
+    margin-right: 10px;
+}
+
+.hotel_detail {
+    height: 200px;
+    padding: 10px 0;
+    border-top: 1px dashed #DDd;
+    border-bottom: 1px dashed #ddd;
+}
+
+.hotel_detail > li {
+    height: 24px;
+    line-height: 24px;
+}
+
+#btn_booking {
+    height: 33px;
+    width: 100px;
+    text-align: center;
+    padding: 0 5px;
+    background: #0092DC;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 3px;
+    line-height: 33px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 80px;
+
+}
+
+#order_info input {
+    box-sizing: border-box;
+    height: 30px;
+    vertical-align: middle;
+
+}
+
+#order_info input[realName='num'] {
+    width: 30px;
+    text-align: center;
+}
+
+#order_info .num > span {
+    border: 1px solid #ddd;
+    /* padding: 2px 5px; */
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    line-height: 30px;
+    text-align: center;
+
+}
+
+.msg {
+    color: #DD4C40;
+    font-weight: bold;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.total {
+    color: #DD4C40;
+    font-size: 18px;
+}
+
+.jump > a {
+    color: #DD4C40;
+    display: inline-block;
+    padding: 10px 0;
+}
+
+.jump > a:last-child {
+    float: right;
+}
+
+.jump > a:first-child {
+    float: left;
+}
+
+/*ÃþÌ¬¿ò*/
+.malog {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 100;
+    display: none;
+    /*overflow: hidden;*/
+}
+
+.malog > .message {
+    position: absolute;
+    padding: 30px;
+    top: 250px;
+    left: 600px;
+    width: 350px;
+    height: 400px;
+    background: #fff;
+}
+
+.malog > .message a {
+    color: #DD4C40;
+}
+
+.malog > .message p {
+    line-height: 30px;
+    text-align: center;
+    font-size: 14px;
+}
+.malog > .message img {
+    width: 300px;
+    height: 300px;
+}
+
+.malog .num {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0 5px;
+    color: #DD4C40;
+}
+
+textarea {
+    vertical-align: middle;
+    min-height: 50px;
+}

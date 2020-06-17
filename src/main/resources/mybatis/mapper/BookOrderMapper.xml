@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cl.cyclamen.dao.BookOrderDao">
+	<!-- 预定订单插入操作 -->
+	<insert id="add" parameterType="cn.cl.cyclamen.entity.BookOrder">
+		insert into book_order(id,userId,roomTypeId,realName,idCard,mobile,status,arriveDate,leaveDate,remark,createTime,payWay,orderWay) values(null,#{userId},#{roomTypeId},#{realName},#{idCard},#{mobile},#{status},#{arriveDate},#{leaveDate},#{remark},#{createTime},#{payWay},#{orderWay})
+	  <!-- select #{userId},#{roomTypeId},#{realName},#{idCard},#{mobile},#{status},#{arriveDate},#{leaveDate},#{remark},#{createTime},#{payWay},#{orderWay}
+	from book_order
+	where not exists (select 1 from book_order where arriveDate=#{arriveDate} and leaveDate=#{leaveDate})-->
+
+	</insert>
+	<!-- 取消预定订单操作 -->
+	<update id="cancel" parameterType="cn.cl.cyclamen.entity.BookOrder">
+		update book_order set status = #{status}
+		where id = #{id}
+	</update>
+	<!-- 预定订单编辑操作 -->
+	<update id="edit" parameterType="cn.cl.cyclamen.entity.BookOrder">
+		update book_order set userId = #{userId},roomTypeId = #{roomTypeId},realName = #{realName},arriveDate = #{arriveDate},leaveDate = #{leaveDate},idCard = #{idCard},mobile = #{mobile},status = #{status},remark = #{remark} where id = #{id}
+	</update>
+	<!-- 预定订单信息搜索查询 -->
+	<select id="findList" parameterType="Map" resultType="cn.cl.cyclamen.entity.BookOrder">
+		select *
+		from book_order
+		where 1 = 1
+		<if test="realName != null">
+			and realName like '%${realName}%'
+		</if>
+		<if test="status != null">
+			and status = #{status}  
+		</if>
+		<if test="userId != null">
+			and userId = #{userId}
+		</if>
+		<if test="roomTypeId != null">
+			and roomTypeId = #{roomTypeId}  
+		</if>
+		<if test="idCard != null">
+			and idCard like '%${idCard}%' 
+		</if>
+		<if test="mobile != null">
+			and mobile like '%${mobile}%' 
+		</if>
+		<if test="offset != null and pageSize != null">
+			limit #{offset},#{pageSize}
+		</if>
+	</select>
+	<!-- 获取单个预定订单信息 -->
+	<select id="find" parameterType="Long" resultType="cn.cl.cyclamen.entity.BookOrder">
+		select * from book_order where id = #{value}
+	</select>
+	<!-- 个人订单信息搜索查询 -->
+	<select id="orderList" parameterType="Map" resultType="cn.cl.cyclamen.entity.BookOrder">
+		select id,roomTypeId,realName,idCard,mobile,status,remark,createTime
+		from book_order
+		order by createTime desc
+	</select>
+	<!-- 模糊搜索总条数 -->
+	<select id="getTotal" parameterType="Map" resultType="Integer">
+		select count(*) from book_order where 1=1  
+		<if test="realName != null">
+			and realName like '%${realName}%'
+		</if>
+		<if test="status != null">
+			and status = #{status}  
+		</if>
+		<if test="userId != null">
+			and userId = #{userId}
+		</if>
+		<if test="roomTypeId != null">
+			and roomTypeId = #{roomTypeId}  
+		</if>
+		<if test="idCard != null">
+			and idCard like '%${idCard}%' 
+		</if>
+		<if test="mobile != null">
+			and mobile like '%${mobile}%' 
+		</if>
+	</select>
+	<!-- 删除预定订单信息 -->
+	<delete id="delete" parameterType="Long">
+		delete from book_order where id = ${value}
+	</delete>
+</mapper>
